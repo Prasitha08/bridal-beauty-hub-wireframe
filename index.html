@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridal Beauty Hub — Low-Fidelity Wireframe</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1f1f1;color:#222;font:15px Arial,sans-serif}
+header{background:#fff;border-bottom:1px solid #bbb;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header strong{font-size:20px}header span{color:#666;font-size:13px}
+main{max-width:1100px;margin:26px auto;padding:0 18px}
+.intro{background:#fff;border:1px solid #bbb;padding:18px;margin-bottom:20px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+button{border:1px solid #777;background:#fff;padding:10px 14px;border-radius:5px;cursor:pointer}
+button.active,button:hover{background:#222;color:#fff}
+.stage{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:24px;align-items:start}
+.phone{background:#fff;border:2px solid #333;border-radius:28px;padding:18px 15px;min-height:620px;max-width:360px;width:100%;margin:auto;box-shadow:0 4px 16px #0001}
+.notch{height:12px;width:85px;background:#333;border-radius:10px;margin:0 auto 20px}
+.screen-title{text-align:center;font-weight:bold;font-size:20px;margin:12px 0 22px}
+.block{border:1.5px solid #777;background:#f8f8f8;padding:13px;margin:10px 0;border-radius:4px}
+.muted{color:#666;font-size:13px}.line{height:10px;background:#ddd;margin:8px 0;border-radius:2px}
+.line.short{width:55%}.line.mid{width:78%}.line.long{width:100%}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.tile{border:1px solid #888;background:#f7f7f7;padding:18px 8px;text-align:center;min-height:75px}
+.action{background:#ddd;border:1px solid #555;text-align:center;padding:12px;margin-top:16px;font-weight:bold;cursor:pointer}
+.details{background:#fff;border:1px solid #bbb;padding:20px}.details h2{margin-top:0}
+.note{background:#f7f7f7;border-left:4px solid #777;padding:12px;margin:12px 0}
+footer{text-align:center;color:#666;padding:24px;font-size:12px}
+@media(max-width:720px){.stage{grid-template-columns:1fr}.phone{min-height:570px}.details{order:-1}}
+</style></head>
+<body>
+<header><strong>BRIDAL BEAUTY HUB</strong><span>Low-Fidelity Mobile App Wireframe · UX/UI Assignment</span></header>
+<main>
+<section class="intro"><h1>Book your bridal beauty services with confidence</h1>
+<p>This grayscale prototype demonstrates the core bride journey: sign in, discover artists, select a service, request a booking and view confirmation.</p>
+</section>
+<nav id="tabs">
+<button class="active" data-screen="0">1. Welcome</button><button data-screen="1">2. Sign in</button><button data-screen="2">3. Home</button><button data-screen="3">4. Provider</button><button data-screen="4">5. Booking</button><button data-screen="5">6. Confirmation</button><button data-screen="6">7. Profile</button>
+</nav>
+<div class="stage"><div class="phone"><div class="notch"></div><div id="screen"></div></div>
+<aside class="details"><h2 id="detailTitle">Welcome screen</h2><p id="detailText">Introduce the app and make the main action obvious.</p>
+<div class="note"><b>Interaction:</b> Use the buttons inside the phone to move through the sample bride journey. Use the tabs above to jump to any screen.</div>
+<h3>Wireframe conventions</h3><ul><li>Grayscale blocks represent image or content placeholders.</li><li>Outlined boxes represent inputs, cards or buttons.</li><li>Simple labels show hierarchy and expected content.</li><li>This is a low-fidelity layout, not final visual styling.</li></ul>
+</aside></div></main><footer>Bridal Beauty Hub · Concept wireframe for educational submission</footer>
+<script>
+const screens=[
+{title:"Welcome screen",desc:"Introduce the service and guide a new bride to sign in or create an account.",html:`<div class="screen-title">Bridal Beauty Hub</div><div class="block" style="height:170px;text-align:center;padding-top:70px">[ Bridal image ]</div><h3 style="text-align:center">Your bridal look, beautifully planned</h3><p class="muted" style="text-align:center">Discover trusted beauty professionals near you.</p><div class="action" onclick="go(1)">Get Started</div><div class="block" onclick="go(2)" style="text-align:center">Explore as Guest</div>`},
+{title:"Sign in screen",desc:"Allow returning users to sign in and new users to create an account.",html:`<div class="screen-title">Welcome Back</div><p class="muted">Sign in to continue</p><div class="block">Email address<br><div class="line long"></div></div><div class="block">Password<br><div class="line long"></div></div><div class="action" onclick="go(2)">Sign In</div><p style="text-align:center" class="muted">New here? Create an account</p>`},
+{title:"Bride home screen",desc:"Help brides discover services and approved beauty providers using categories and search.",html:`<div style="display:flex;justify-content:space-between"><b>Hello, Bride!</b><span>♡</span></div><div class="block">Search artists, salons or services…</div><h3>Explore Services</h3><div class="grid2"><div class="tile" onclick="go(3)">Bridal Makeup</div><div class="tile" onclick="go(3)">Mehendi</div><div class="tile" onclick="go(3)">Hair Styling</div><div class="tile" onclick="go(3)">Nail Art</div></div><h3>Recommended Artists</h3><div class="block" onclick="go(3)">[ Artist photo ] &nbsp; Beauty Studio<br><span class="muted">Coimbatore · View details →</span></div><div class="block" onclick="go(3)">[ Artist photo ] &nbsp; Bridal Artist<br><span class="muted">Salem · View details →</span></div>`},
+{title:"Provider details screen",desc:"Show the selected provider's profile, services, location and starting price before booking.",html:`<div class="block" style="height:135px;text-align:center;padding-top:55px">[ Provider cover image ]</div><div class="screen-title">Beauty Studio</div><p class="muted">Coimbatore · 5 years experience</p><h3>About</h3><p class="muted">Professional bridal beauty services for your special day.</p><h3>Services</h3><div class="block">Bridal Makeup <b style="float:right">₹12,000</b></div><div class="block">Engagement Makeup <b style="float:right">₹6,000</b></div><div class="action" onclick="go(4)">Book This Artist</div>`},
+{title:"Booking form screen",desc:"Collect the service, event date, preferred time, contact number and optional notes.",html:`<div class="screen-title">Request a Booking</div><div class="block">Selected service<br><b>Bridal Makeup</b></div><div class="block">Event date<br><div class="line mid"></div></div><div class="block">Preferred time<br><div class="line mid"></div></div><div class="block">Phone number<br><div class="line long"></div></div><div class="block">Additional notes<br><div class="line long"></div><div class="line mid"></div></div><div class="action" onclick="go(5)">Submit Booking Request</div>`},
+{title:"Booking confirmation screen",desc:"Confirm that the request was submitted and explain that the provider will respond.",html:`<div class="screen-title">Request Submitted</div><div class="block" style="height:150px;text-align:center;padding-top:60px;font-size:30px">✓</div><h3 style="text-align:center">Thank you!</h3><p class="muted" style="text-align:center">Your booking request has been sent to Beauty Studio.</p><div class="block">Booking status <b style="float:right">Pending</b></div><div class="action" onclick="go(6)">View My Profile</div><div class="block" onclick="go(2)" style="text-align:center">Back to Home</div>`},
+{title:"Bride profile screen",desc:"Give users a place to view personal details and access their bookings and account options.",html:`<div class="screen-title">My Profile</div><div class="block" style="text-align:center"><div style="font-size:38px">○</div><b>Priya</b><p class="muted">priya@example.com</p></div><div class="block">Personal Information <span style="float:right">›</span></div><div class="block" onclick="go(5)">My Bookings <span style="float:right">›</span></div><div class="block">Notifications <span style="float:right">›</span></div><div class="block">Help & Support <span style="float:right">›</span></div><div class="action" onclick="go(0)">Log Out</div>`}
+];
+let current=0;
+function go(i){current=i;document.querySelectorAll("nav button").forEach((b,n)=>b.classList.toggle("active",n===i));document.getElementById("screen").innerHTML=screens[i].html;document.getElementById("detailTitle").textContent=screens[i].title;document.getElementById("detailText").textContent=screens[i].desc}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>go(+b.dataset.screen)));go(0);
+</script></body></html>
