@@ -1,1 +1,0 @@
-# bridal-beauty-hub-wireframe
